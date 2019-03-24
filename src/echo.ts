@@ -42,7 +42,7 @@ export default class Echo {
         } else if (this.options.broadcaster == 'null') {
             this.connector = new NullConnector(this.options);
         } else if (this.options.broadcaster == 'socketcluster') {
-            this.connector = new SocketClusterConnector(this.options.socketcluster || {});
+            this.connector = new SocketClusterConnector(this.options || {});
         }
     }
 

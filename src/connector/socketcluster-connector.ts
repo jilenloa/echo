@@ -25,7 +25,7 @@ export class SocketClusterConnector extends Connector {
      */
     connect(): void {
         let socketCluster = this.getSocketCluster();
-        this.socket = socketCluster.create(this.options);
+        this.socket = socketCluster.create(this.options.socketcluster || {});
     }
 
     /**

@@ -55,10 +55,12 @@ export class SocketClusterChannel extends Channel {
      * Subscribe to a socket-cluster channel.
      */
     subscribe(): void {
+        let authParams = this.options.auth || {};
+        authParams.url = this.getFullAuthEndpoint();
         this.channelObject = this.socket.subscribe(this.name, {
             data: {
                 channel: this.name,
-                auth: this.options.auth || {}
+                auth: authParams
             }
         });
         this.channelObject.watch(data => {
@@ -68,6 +70,11 @@ export class SocketClusterChannel extends Channel {
                 });
             }
         });
+    }
+
+    getFullAuthEndpoint(){
+        let host = window.location.protocol+'//'+window.location.hostname;
+        return host+this.options.authEndpoint;
     }
 
     /**
