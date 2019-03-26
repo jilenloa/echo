@@ -36,6 +36,8 @@ export class SocketClusterChannel extends Channel {
 
     channelObject: SCChannel;
 
+    connectedOnce: boolean = false;
+
     /**
      * Create a new class instance.
      */
@@ -46,7 +48,6 @@ export class SocketClusterChannel extends Channel {
         this.socket = socket;
         this.options = options;
         this.eventFormatter = new EventFormatter(this.options.namespace);
-
         this.subscribe();
         this.configureReconnector();
     }
@@ -114,7 +115,7 @@ export class SocketClusterChannel extends Channel {
             callback(data);
         };
 
-        //this.socket.on(event, listener);
+        // this.socket.on(event, listener);
         this.channelObject.on(event, listener);
         this.bind(event, listener);
     }
@@ -124,6 +125,10 @@ export class SocketClusterChannel extends Channel {
      */
     configureReconnector(): void {
         const listener = () => {
+            if(!this.connectedOnce){
+                this.connectedOnce = true;
+                return;
+            }
             this.subscribe();
         };
 

@@ -21,7 +21,6 @@ export class SocketClusterPresenceChannel extends SocketClusterPrivateChannel im
      */
     joining(callback: Function): SocketClusterPresenceChannel {
         this.on('presence:joining', (member) => callback(member.user_info));
-
         return this;
     }
 
