@@ -9,7 +9,13 @@ export class SocketClusterPrivateChannel extends SocketClusterChannel {
      * Trigger client event on the channel.
      */
     whisper(eventName: string, data: any): SocketClusterChannel {
-        this.channelObject.emit('client event', {
+        // this.channelObject.emit('client event', {
+        //     channel: this.name,
+        //     event: `client-${eventName}`,
+        //     data: data
+        // });
+
+        this.channelObject.publish({
             channel: this.name,
             event: `client-${eventName}`,
             data: data

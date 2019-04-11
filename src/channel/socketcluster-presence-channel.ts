@@ -38,7 +38,13 @@ export class SocketClusterPresenceChannel extends SocketClusterPrivateChannel im
      */
     whisper(eventName: string, data: any): SocketClusterPresenceChannel {
 
-        this.channelObject.emit('client event', {
+        // this.channelObject.emit('client event', {
+        //     channel: this.name,
+        //     event: `client-${eventName}`,
+        //     data: data
+        // });
+
+        this.channelObject.publish({
             channel: this.name,
             event: `client-${eventName}`,
             data: data

@@ -19,7 +19,8 @@
   "keywords": [
     "laravel",
     "pusher",
-    "socket.io"
+    "socket.io",
+    "socketcluster"
   ],
   "author": {
     "name": "Taylor Otwell"
@@ -28,10 +29,12 @@
   "engines": {
     "node": ">6.0.*"
   },
+  "dependencies": {
+    "@types/socketcluster-client": "^13.0.2"
+  },
   "devDependencies": {
     "@types/jest": "^22.1.0",
     "@types/node": "^6.0.85",
-    "@types/socketcluster-client": "^13.0.2",
     "babel-plugin-transform-object-assign": "^6.8.0",
     "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-stage-2": "^6.5.0",
