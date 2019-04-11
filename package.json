@@ -1,5 +1,5 @@
 {
-  "name": "laravel-echo",
+  "name": "laravel-echo-socketcluster",
   "version": "1.5.3",
   "description": "Laravel Echo library for beautiful Pusher and Socket.IO integration",
   "main": "dist/echo.common.js",
