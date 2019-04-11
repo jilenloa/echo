@@ -74,7 +74,8 @@ export class SocketClusterChannel extends Channel {
     }
 
     getFullAuthEndpoint(){
-        let host = window.location.protocol+'//'+window.location.hostname;
+        var hostname = this.options.auth['hostname'] || window.location.hostname;
+        let host = window.location.protocol+'//'+hostname;
         return host+this.options.authEndpoint;
     }
 
