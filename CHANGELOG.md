@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://github.com/laravel/echo/compare/v1.6.0...v1.6.1) (2019-09-21)
+
 ## [1.6.0](https://github.com/laravel/echo/compare/v1.5.4...v1.6.0) (2019-09-21)
 
 
