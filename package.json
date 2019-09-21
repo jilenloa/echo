@@ -1,6 +1,6 @@
 {
   "name": "laravel-echo-socketcluster",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "description": "Laravel Echo library for beautiful Pusher and Socket.IO integration",
   "main": "dist/echo.common.js",
   "types": "dist/echo.d.ts",
@@ -10,11 +10,12 @@
     "compile": "./node_modules/.bin/rollup -c",
     "declarations": "./node_modules/.bin/tsc --emitDeclarationOnly",
     "prepublish": "npm run build",
+    "release": "npm run test && standard-version && git push --follow-tags && npm publish",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jilenloa/echo"
+    "url": "https://github.com/laravel/echo"
   },
   "keywords": [
     "laravel",
@@ -27,25 +28,25 @@
   },
   "homepage": "https://github.com/laravel/echo",
   "engines": {
-    "node": ">6.0.*"
+    "node": ">=8"
   },
   "dependencies": {
     "@types/socketcluster-client": "^13.0.2"
   },
   "devDependencies": {
-    "@types/jest": "^22.1.0",
-    "@types/node": "^6.0.85",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.5",
     "babel-plugin-transform-object-assign": "^6.8.0",
     "babel-preset-es2015-rollup": "^3.0.0",
-    "babel-preset-stage-2": "^6.5.0",
-    "jest": "^22.1.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "jest": "^24.9.0",
     "pusher-js": "^3.2.1",
-    "rollup": "^0.67.3",
-    "rollup-plugin-babel": "^2.4.0",
-    "rollup-plugin-typescript": "^1.0.0",
-    "ts-jest": "^22.0.0",
-    "tslib": "^1.9.3",
-    "typescript": "^3.2.1"
+    "rollup": "^1.21.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-typescript": "^1.0.1",
+    "ts-jest": "^24.1.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.6.3"
   },
   "jest": {
     "transform": {

@@ -30,12 +30,12 @@ export class SocketIoConnector extends Connector {
      * Get socket.io module from global scope or options.
      */
     getSocketIO(): any {
-        if (typeof io !== 'undefined') {
-            return io;
-        }
-
         if (typeof this.options.client !== 'undefined') {
             return this.options.client;
+        }
+
+        if (typeof io !== 'undefined') {
+            return io;
         }
 
         throw new Error('Socket.io client not found. Should be globally available or passed via options.client');
@@ -53,11 +53,7 @@ export class SocketIoConnector extends Connector {
      */
     channel(name: string): SocketIoChannel {
         if (!this.channels[name]) {
-            this.channels[name] = new SocketIoChannel(
-                this.socket,
-                name,
-                this.options
-            );
+            this.channels[name] = new SocketIoChannel(this.socket, name, this.options);
         }
 
         return this.channels[name];
@@ -68,11 +64,7 @@ export class SocketIoConnector extends Connector {
      */
     privateChannel(name: string): SocketIoPrivateChannel {
         if (!this.channels['private-' + name]) {
-            this.channels['private-' + name] = new SocketIoPrivateChannel(
-                this.socket,
-                'private-' + name,
-                this.options
-            );
+            this.channels['private-' + name] = new SocketIoPrivateChannel(this.socket, 'private-' + name, this.options);
         }
 
         return this.channels['private-' + name];
