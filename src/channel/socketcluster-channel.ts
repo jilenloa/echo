@@ -75,7 +75,7 @@ export class SocketClusterChannel extends Channel {
 
     getFullAuthEndpoint(){
         let protocol = window.location.protocol;
-        if(this.options.secure){
+        if(this.options.auth['secure'] || this.options.secure){
             protocol = "https:"
         }
         var hostname = this.options.auth['hostname'] || (this.options.socketcluster['hostname'] || window.location.hostname);
